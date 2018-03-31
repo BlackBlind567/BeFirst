@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "693662206188",
+    "firebase_url": "https://befirst-b493c.firebaseio.com",
+    "project_id": "befirst-b493c",
+    "storage_bucket": "befirst-b493c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693662206188:android:40bf0ba7f2a1b1d5",
+        "android_client_info": {
+          "package_name": "com.blackblind.befirst"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693662206188-dttcfvofpekeq8c4fvccm5enmj0ufov6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blackblind.befirst",
+            "certificate_hash": "8c4c8d57ff84006fc75d0277b45e607b0b3ec728"
+          }
+        },
+        {
+          "client_id": "693662206188-l9pkus9aj823ihj9lmfh61ih2gfma4qo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLKoOWFswqcok6a3EhPPdjgSCPCSY2aeo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693662206188-l9pkus9aj823ihj9lmfh61ih2gfma4qo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
