@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Be First</string>
     <string name="email">Email</string>
-    <string name="be_first">BeFirst</string>
     <string name="password">Password</string>
     <string name="not_a_member_please_signup_here">Not a member? Please SignUp here</string>
     <string name="signin">Signin</string>
+    <string name="be">Be</string>
+    <string name="first">First</string>
 </resources>

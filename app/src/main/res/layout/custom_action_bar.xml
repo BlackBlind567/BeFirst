@@ -9,25 +9,25 @@
             android:id="@+id/titleFragment1"
             android:layout_width="wrap_content"
             android:layout_height="?attr/actionBarSize"
-            android:text="Be"
+            android:text="@string/be"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="22sp"
+            android:textSize="25sp"
             android:textColor="@color/colorAccent"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:textStyle="bold"
-            android:fontFamily="@font/nosifer_regular"/>
+            android:fontFamily="@font/dancingscript_bold"/>
 
         <TextView
             android:id="@+id/titleFragment2"
             android:layout_width="wrap_content"
             android:layout_height="?attr/actionBarSize"
-            android:textSize="25sp"
-            android:text="First"
+            android:textSize="22sp"
+            android:text="@string/first"
             android:textStyle="bold"
             android:textColor="@color/colorAccent"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="@font/dancingscript_bold"/>
+            android:fontFamily="@font/nosifer_regular"/>
 
 </LinearLayout>
