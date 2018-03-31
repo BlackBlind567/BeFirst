@@ -6,4 +6,8 @@
     <string name="signin">Signin</string>
     <string name="be">Be</string>
     <string name="first">First</string>
+    <string name="already_member_signin_here">Already member?SignIn here</string>
+    <string name="your_name">Your Name</string>
+    <string name="mobile">Mobile</string>
+    <string name="signup">Signup</string>
 </resources>
