@@ -10,4 +10,12 @@
     <string name="your_name">Your Name</string>
     <string name="mobile">Mobile</string>
     <string name="signup">Signup</string>
+    <string name="error_required_field">Please fill this field</string>
+    <string name="error_email_address">This email address is invalid</string>
+    <string name="error_name">Enter Valid Name</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_invalid_Repassword">Password is not match</string>
+    <string name="error_mobile_number">Enter mobile number</string>
+    <string name="quote">Quote</string>
+    <string name="author">author</string>
 </resources>

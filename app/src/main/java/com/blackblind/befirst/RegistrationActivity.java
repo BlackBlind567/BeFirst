@@ -4,7 +4,9 @@ import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,15 +18,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private TextView textView;
-    private Button button;
     private TextInputLayout nameWrapper;
     private TextInputLayout EmailWrapper;
     private TextInputLayout passWrapper;
@@ -37,13 +47,14 @@ public class RegistrationActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
 //        This is for custom Action Bar
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(R.layout.custom_action_bar);
         View view =getSupportActionBar().getCustomView();
@@ -61,15 +72,15 @@ public class RegistrationActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.reg_email);
         editTextPassword = findViewById(R.id.reg_password);
         editTextNumber = findViewById(R.id.reg_mobile);
-        textView = (TextView) findViewById(R.id.tv_signin);
-        button = (Button) findViewById(R.id.btn_signup);
+        TextView textView = findViewById(R.id.tv_signIn);
+        Button button = findViewById(R.id.btn_signUp);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 finish();
-                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
 
             }
         });
@@ -102,7 +113,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     finish();
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 }
                 if (!task.isSuccessful()){
                     Toast.makeText(RegistrationActivity.this, "May be email already has been registered.Please make sure", Toast.LENGTH_SHORT).show();
@@ -128,11 +139,11 @@ public class RegistrationActivity extends AppCompatActivity {
         userMap.put("password" , userPassword);
         userMap.put("mobile" , userNumber);
 
-        firebaseFirestore.collection("users").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        firebaseFirestore.collection("publisher").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
 
-                Toast.makeText(RegistrationActivity.this, "registration is successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistrationActivity.this, "Registration is successful", Toast.LENGTH_SHORT).show();
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -150,14 +161,16 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void hideKeyboard() {
         View view = getCurrentFocus();
         if (view != null) {
-            ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).
+            ((InputMethodManager) Objects.requireNonNull(getSystemService(Context.INPUT_METHOD_SERVICE))).
                     hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void attemptRegistration() {
 
         // Reset errors.
@@ -166,10 +179,10 @@ public class RegistrationActivity extends AppCompatActivity {
         passWrapper.setError(null);
         mobileWrapper.setError(null);
 
-        String name = nameWrapper.getEditText().getText().toString();
-        String email = EmailWrapper.getEditText().getText().toString();
-        String password = passWrapper.getEditText().getText().toString();
-        String Number = mobileWrapper.getEditText().getText().toString();
+        String name = Objects.requireNonNull(nameWrapper.getEditText()).getText().toString();
+        String email = Objects.requireNonNull(EmailWrapper.getEditText()).getText().toString();
+        String password = Objects.requireNonNull(passWrapper.getEditText()).getText().toString();
+        String Number = Objects.requireNonNull(mobileWrapper.getEditText()).getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -226,15 +239,21 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private boolean isNumberValid(String Number) {
-        return Number.length() > 9;
+       String NUMBER_PATTERN = "^(?:(?:\\+|0{0,2})91(\\s*[\\-]\\s*)?|[0]?)?[789]\\d{9}$";
+       Pattern pattern = Pattern.compile(NUMBER_PATTERN);
+       Matcher matcher = pattern.matcher(Number);
+       return matcher.matches();
     }
 
     private boolean isPasswordValid(String password) {
-        return password.length() > 8;
+        String PASSWORD_PATTERN = "^(?=.*\\d)(?=.*[a-zA-Z])(?!.*[\\W_\\x7B-\\xFF]).{8,15}$";
+        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
     }
 
     private boolean isEmailValid(String email) {
-        String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
+        String EMAIL_PATTERN = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();

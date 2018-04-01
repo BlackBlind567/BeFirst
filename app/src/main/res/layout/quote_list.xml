@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/quote_list"
+    tools:context=".MainActivity"
+    android:gravity="center"
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:id="@+id/tv_quote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quote"
+        android:textSize="20sp"
+        android:maxLines="4"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorAccent"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:gravity="start"
+        android:layout_gravity="start"/>
+
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author"
+        android:textSize="20sp"
+        android:textColor="@color/colorAccent"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:textAlignment="textEnd"
+        android:gravity="end"
+        android:layout_gravity="end" />
+</LinearLayout>

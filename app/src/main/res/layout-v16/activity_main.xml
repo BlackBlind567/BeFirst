@@ -1,122 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/colorBackground">
+    android:orientation="horizontal">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
-            <TextView
-                android:id="@+id/tv_app_title1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:gravity="center"
-                android:text="@string/be"
-                android:textColor="@color/colorAccent"
-                android:textSize="30sp"
-                android:fontFamily="@font/dancingscript_bold"/>
-
-            <TextView
-                android:id="@+id/tv_app_title2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:gravity="center"
-                android:text="@string/first"
-                android:textColor="@color/colorAccent"
-                android:textSize="30sp"
-                android:fontFamily="@font/nosifer_regular"/>
-
-        </LinearLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/emailWrapper"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rw_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="2dp"
-            android:textColorHint="@color/colorPrimary">
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="@string/email"
-                android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:paddingStart="10dp"
-                android:paddingRight="10dp"
-                android:textColor="@color/colorPrimary"/>
+        </android.support.v7.widget.RecyclerView>
 
-        </android.support.design.widget.TextInputLayout>
+    </ScrollView>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/passwordWrapper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            app:passwordToggleEnabled="true"
-            android:textColorHint="@color/colorPrimary">
+</LinearLayout>
 
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/password"
-                android:layout_marginBottom="25dp"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:paddingStart="10dp"
-                android:paddingRight="10dp"
-                android:layout_marginTop="15dp"
-                android:textColor="@color/colorPrimary"/>
 
-        </android.support.design.widget.TextInputLayout>
 
-        <Button
-            android:id="@+id/btn_signIn"
-            android:layout_marginTop="4dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/signin"
-            android:background="@color/colorPrimary"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:fontFamily="@font/nosifer_regular"/>
-
-        <TextView
-            android:id="@+id/tv_signUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="35dp"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:text="@string/not_a_member_please_signup_here"
-            android:textColor="@color/colorAccent"
-            android:fontFamily="@font/dancingscript_bold"/>
-
-    </LinearLayout>
-
-</ScrollView>
 

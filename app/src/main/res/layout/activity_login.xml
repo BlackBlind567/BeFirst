@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
- <ScrollView
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationActivity"
+    tools:context=".MainActivity"
     android:background="@color/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -46,37 +47,15 @@
         </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/emailWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/nameWrapper"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="2dp"
             android:textColorHint="@color/colorPrimary">
 
             <EditText
-                android:id="@+id/reg_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="@string/your_name"
-                android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:paddingStart="10dp"
-                android:paddingRight="10dp"
-                android:textColor="@color/colorPrimary"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/EmailWrapper"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="2dp"
-            android:textColorHint="@color/colorPrimary">
-
-            <EditText
-                android:id="@+id/reg_email"
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -90,19 +69,19 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/passwordWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true"
-            android:id="@+id/passWrapper"
             android:layout_marginTop="6dp"
-            android:layout_marginBottom="2dp"
+            app:passwordToggleEnabled="true"
             android:textColorHint="@color/colorPrimary">
 
             <EditText
-                android:id="@+id/reg_password"
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
+                android:layout_marginBottom="25dp"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:paddingLeft="10dp"
@@ -113,34 +92,12 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/mobileWrapper"
-            android:layout_marginTop="6dp"
-            android:textColorHint="@color/colorPrimary">
-
-            <EditText
-                android:id="@+id/reg_mobile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:layout_marginBottom="25dp"
-                android:hint="@string/mobile"
-                android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:paddingStart="10dp"
-                android:paddingRight="10dp"
-                android:textColor="@color/colorPrimary"/>
-
-        </android.support.design.widget.TextInputLayout>
-
         <Button
-            android:id="@+id/btn_signUp"
+            android:id="@+id/btn_signIn"
             android:layout_marginTop="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/signup"
+            android:text="@string/signin"
             android:background="@color/colorPrimary"
             android:textStyle="bold"
             android:textColor="@color/colorAccent"
@@ -149,17 +106,16 @@
             android:fontFamily="@font/nosifer_regular"/>
 
         <TextView
-            android:id="@+id/tv_signIn"
+            android:id="@+id/tv_signUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="35dp"
             android:layout_marginTop="15dp"
             android:gravity="center"
             android:textStyle="bold"
-            android:text="@string/already_member_signin_here"
+            android:text="@string/not_a_member_please_signup_here"
             android:textColor="@color/colorAccent"
             android:fontFamily="@font/dancingscript_bold"/>
-
 
     </LinearLayout>
 </ScrollView>
