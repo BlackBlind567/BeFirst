@@ -53,8 +53,12 @@ public class FirstActivity extends AppCompatActivity {
                     Toast.makeText(FirstActivity.this, "Thoughts of all publisher", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(FirstActivity.this,MainActivity.class));
                 }else if (id == R.id.nav_publish) {
-                    Toast.makeText(FirstActivity.this, "Please Register your account to publish your thought", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(FirstActivity.this,RegistrationActivity.class));
+                    if (firebaseAuth.getCurrentUser() != null) {
+                        startActivity(new Intent(FirstActivity.this, ThinkActivity.class));
+                    }else {
+                        Toast.makeText(FirstActivity.this, "Please Register your account to publish your thought", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(FirstActivity.this,RegistrationActivity.class));
+                    }
                 }else if (id == R.id.nav_login) {
                     Toast.makeText(FirstActivity.this, "Make sure you have account", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(FirstActivity.this,LoginActivity.class));

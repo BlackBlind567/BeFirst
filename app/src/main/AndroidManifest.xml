@@ -13,7 +13,8 @@
             android:parentActivityName=".FirstActivity">
 
         </activity>
-        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".RegistrationActivity"
+            android:parentActivityName=".FirstActivity"/>
         <activity android:name=".LoginActivity"
             android:parentActivityName=".FirstActivity"/>
         <activity android:name=".ThinkActivity"
