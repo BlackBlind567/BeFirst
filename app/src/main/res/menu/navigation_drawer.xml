@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_thought"
+        android:title="@string/thought"
+        android:icon="@mipmap/thought" />
+
+    <item android:id="@+id/nav_publish"
+        android:title="@string/think_and_publish"
+        android:icon="@mipmap/think"/>
+
+    <item android:id="@+id/nav_login"
+        android:title="@string/login"
+        android:icon="@mipmap/login"/>
+
+
+    <item android:id="@+id/nav_logout"
+        android:title="@string/logout"
+        android:icon="@mipmap/logout"/>
+
+</menu>

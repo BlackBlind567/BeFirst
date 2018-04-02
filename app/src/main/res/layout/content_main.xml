@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".FirstActivity"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center"
+        android:background="@color/colorBackground">
+
+
+        <TextView
+            android:id="@+id/tv_app_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:text="@string/be"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            android:fontFamily="@font/dancingscript_bold"/>
+
+        <TextView
+            android:id="@+id/tv_app_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:text="@string/first"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            android:fontFamily="@font/nosifer_regular"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/hello"
+            android:fontFamily="@font/chicle_regular"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp">
+
+            <TextView
+                android:id="@+id/tv_app_title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/be"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:fontFamily="@font/dancingscript_bold"/>
+
+            <TextView
+                android:id="@+id/tv_app_title4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/first"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:fontFamily="@font/nosifer_regular"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/user_please_read_this"
+            android:fontFamily="@font/chicle_regular"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                android:fontFamily="@font/lobster_two_regular"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text2"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                android:fontFamily="@font/lobster_two_regular"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text3"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                android:fontFamily="@font/lobster_two_regular"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/text4"
+                android:textSize="25sp"
+                android:fontFamily="@font/lobster_two_regular"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text5"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="25sp"
+                android:fontFamily="@font/lobster_two_regular"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text6"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="25sp"
+                android:fontFamily="@font/lobster_two_regular"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text7"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="25sp"
+                android:fontFamily="@font/lobster_two_regular"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text8"
+                android:textSize="25sp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/lobster_two_regular"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

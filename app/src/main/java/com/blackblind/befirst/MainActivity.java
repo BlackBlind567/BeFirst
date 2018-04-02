@@ -1,68 +1,68 @@
 package com.blackblind.befirst;
 
 
+
 import android.app.ActionBar;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.TextInputLayout;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 
 public class MainActivity extends AppCompatActivity {
 
+    private FirebaseAuth firebaseAuth;
     private static final String TAG = "FireLog";
-    private RecyclerView recyclerView;
-    private FirebaseFirestore firebaseFirestore;
     private List<quote> quoteList;
     private quoteListAdapter quoteListAdapter;
 
 
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
+        View view =getSupportActionBar().getCustomView();
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
         quoteList = new ArrayList<>();
         quoteListAdapter = new quoteListAdapter(quoteList);
 
-
-        recyclerView = (RecyclerView) findViewById(R.id.rw_list);
+        RecyclerView recyclerView = findViewById(R.id.rw_list);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         recyclerView.setAdapter(quoteListAdapter);
 
-        firebaseFirestore = FirebaseFirestore.getInstance();
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
         firebaseFirestore.collection("thoughts").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
     }
 }

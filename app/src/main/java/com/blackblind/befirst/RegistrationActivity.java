@@ -80,7 +80,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 finish();
-                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
 
             }
         });
@@ -113,7 +113,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     finish();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ThinkActivity.class));
                 }
                 if (!task.isSuccessful()){
                     Toast.makeText(RegistrationActivity.this, "May be email already has been registered.Please make sure", Toast.LENGTH_SHORT).show();

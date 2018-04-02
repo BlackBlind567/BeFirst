@@ -48,6 +48,9 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.custom_action_bar);
         View view =getSupportActionBar().getCustomView();
 
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() != null){
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
