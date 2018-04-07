@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FirstActivity"
-    android:id="@+id/drawer_layout">
+    android:id="@+id/drawer_layout"
+    tools:openDrawer="start">
 
     <include layout="@layout/content_main"/>
 
@@ -15,6 +16,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/colorAccent"
+        app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/navigation_drawer" />
 
 
