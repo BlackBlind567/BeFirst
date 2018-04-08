@@ -10,6 +10,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -29,46 +32,50 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
+//        firebase instance
         firebaseAuth = FirebaseAuth.getInstance();
 
+//        custom action bar
         Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(R.layout.custom_action_bar);
         View view =getSupportActionBar().getCustomView();
 
+//        navigation drawer
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open, R.string.close);
-
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
+//        navgation item selection
         NavigationView navigationView = findViewById(R.id.nav_menu);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 int id = item.getItemId();
-                if (id == R.id.nav_thought){
-                    Toast.makeText(FirstActivity.this, "Thoughts of all publisher", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(FirstActivity.this,MainActivity.class));
+                if (id == R.id.nav_your_thought){
+                    Toast.makeText(FirstActivity.this, "This feature will be added soon", Toast.LENGTH_SHORT).show();
                 }else if (id == R.id.nav_publish) {
-                    if (firebaseAuth.getCurrentUser() != null) {
+                    Toast.makeText(FirstActivity.this, "You can see the all publisher thoughts", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(FirstActivity.this,MainActivity.class));
+                }else if (id == R.id.nav_think_say) {
+                    if (firebaseAuth.getCurrentUser() != null){
                         startActivity(new Intent(FirstActivity.this, ThinkActivity.class));
                     }else {
-                        Toast.makeText(FirstActivity.this, "Please Register your account to publish your thought", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(FirstActivity.this,RegistrationActivity.class));
+                        Toast.makeText(FirstActivity.this, "Go in profile section and login", Toast.LENGTH_SHORT).show();
                     }
-                }else if (id == R.id.nav_login) {
-                    Toast.makeText(FirstActivity.this, "Make sure you have account", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(FirstActivity.this,LoginActivity.class));
+                } else if (id == R.id.nav_feedback) {
+                    startActivity(new Intent(FirstActivity.this,FeedbackActivity.class));
+                    Toast.makeText(FirstActivity.this, "We need your feedback", Toast.LENGTH_SHORT).show();
 
-                } else if (id == R.id.nav_logout) {
-//
+                }else if (id == R.id.nav_logout) {//
                     if (firebaseAuth.getCurrentUser() != null){
                         firebaseAuth.signOut();
                         Toast.makeText(FirstActivity.this, "Successfully SignOut", Toast.LENGTH_SHORT).show();
-                    }else {
+                    }
+                    if (firebaseAuth.getCurrentUser() == null){
                         Toast.makeText(FirstActivity.this, "You are not logged in", Toast.LENGTH_SHORT).show();
                     }
 
@@ -78,15 +85,33 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
+
+//    context menu
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_profile) {
+            startActivity(new Intent(FirstActivity.this,LoginActivity.class));
         }
-        return super.onOptionsItemSelected(item);
+
+        return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
 
 
     }

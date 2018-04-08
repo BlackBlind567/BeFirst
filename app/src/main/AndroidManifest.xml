@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".FirstActivity"></activity>
+            android:parentActivityName=".FirstActivity" />
         <activity
             android:name=".RegistrationActivity"
             android:parentActivityName=".FirstActivity" />
@@ -28,7 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FeedbackActivity"></activity>
+        <activity android:name=".FeedbackActivity" />
+        <activity android:name=".User_ThoughtActivity"></activity>
     </application>
 
 </manifest>
