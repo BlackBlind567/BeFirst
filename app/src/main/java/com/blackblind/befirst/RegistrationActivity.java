@@ -55,10 +55,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
 //        This is for custom Action Bar
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
-        View view =getSupportActionBar().getCustomView();
+//        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        getSupportActionBar().setDisplayShowCustomEnabled(true);
+//        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
+//        View view =getSupportActionBar().getCustomView();
 
         progressDialog = new ProgressDialog(this);
 
@@ -140,7 +140,7 @@ public class RegistrationActivity extends AppCompatActivity {
         userMap.put("password" , userPassword);
         userMap.put("mobile" , userNumber);
 
-        firebaseFirestore.collection("publisher").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        firebaseFirestore.collection("quoteMaster").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
 

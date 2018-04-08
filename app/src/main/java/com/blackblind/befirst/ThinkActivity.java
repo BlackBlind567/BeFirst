@@ -47,10 +47,10 @@ public class ThinkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_think);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
-        View view = getSupportActionBar().getCustomView();
+//        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        getSupportActionBar().setDisplayShowCustomEnabled(true);
+//        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
+//        View view = getSupportActionBar().getCustomView();
 
         progressDialog = new ProgressDialog(this);
 
@@ -71,6 +71,9 @@ public class ThinkActivity extends AppCompatActivity {
                 hideKeyboard();
 
                 fireStoreData();
+                progressDialog.setMessage("Submitting your thought");
+                progressDialog.show();
+
 
 
             }
@@ -78,14 +81,12 @@ public class ThinkActivity extends AppCompatActivity {
 
     }
 
-
     private void fireStoreData() {
 
         String userQuote = editTextquote.getText().toString();
         String userAuthor = editTextauthor.getText().toString();
 
-        progressDialog.setMessage("Submitting your thought");
-        progressDialog.show();
+
 
         Map<String, String> userMap = new HashMap<>();
 
@@ -100,6 +101,10 @@ public class ThinkActivity extends AppCompatActivity {
             public void onSuccess(DocumentReference documentReference) {
 
                 Toast.makeText(ThinkActivity.this, "Successfully submit", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(ThinkActivity.this,MainActivity.class));
+                progressDialog.dismiss();
+                finish();
 
             }
         }).addOnFailureListener(new OnFailureListener() {

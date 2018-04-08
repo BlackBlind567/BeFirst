@@ -74,6 +74,7 @@ public class FirstActivity extends AppCompatActivity {
                     if (firebaseAuth.getCurrentUser() != null){
                         firebaseAuth.signOut();
                         Toast.makeText(FirstActivity.this, "Successfully SignOut", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(FirstActivity.this,LoginActivity.class));
                     }
                     if (firebaseAuth.getCurrentUser() == null){
                         Toast.makeText(FirstActivity.this, "You are not logged in", Toast.LENGTH_SHORT).show();
