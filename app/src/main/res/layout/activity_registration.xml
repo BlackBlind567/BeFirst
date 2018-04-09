@@ -51,7 +51,8 @@
             android:id="@+id/nameWrapper"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="2dp"
-            android:textColorHint="@color/colorPrimary">
+            android:textColorHint="@color/colorPrimary"
+            app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
             <EditText
                 android:id="@+id/reg_name"
@@ -73,7 +74,8 @@
             android:id="@+id/EmailWrapper"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="2dp"
-            android:textColorHint="@color/colorPrimary">
+            android:textColorHint="@color/colorPrimary"
+            app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
             <EditText
                 android:id="@+id/reg_email"
@@ -96,7 +98,8 @@
             android:id="@+id/passWrapper"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="2dp"
-            android:textColorHint="@color/colorPrimary">
+            android:textColorHint="@color/colorPrimary"
+            app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
             <EditText
                 android:id="@+id/reg_password"
@@ -118,16 +121,18 @@
             android:layout_height="wrap_content"
             android:id="@+id/mobileWrapper"
             android:layout_marginTop="6dp"
-            android:textColorHint="@color/colorPrimary">
+            android:textColorHint="@color/colorPrimary"
+            app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
             <EditText
                 android:id="@+id/reg_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:layout_marginBottom="25dp"
                 android:hint="@string/mobile"
                 android:maxLines="1"
+                android:maxLength="10"
                 android:paddingLeft="10dp"
                 android:paddingStart="10dp"
                 android:paddingRight="10dp"

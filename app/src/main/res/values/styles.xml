@@ -18,10 +18,9 @@
         <!--<item name="contentInsetEnd">0dp</item>-->
     </style>
 
-    <!--<style name="NoActionBar" parent="@android:style/Theme.Holo.Light">-->
-        <!--<item name="android:windowActionBar">false</item>-->
-        <!--<item name="android:windowNoTitle">true</item>-->
-    <!--</style>-->
+    <style name="WelcomeErrorAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 
 
 </resources>

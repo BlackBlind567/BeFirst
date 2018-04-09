@@ -52,7 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="2dp"
-            android:textColorHint="@color/colorPrimary">
+            android:textColorHint="@color/colorPrimary"
+            app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
             <EditText
                 android:id="@+id/et_email"
@@ -74,7 +75,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             app:passwordToggleEnabled="true"
-            android:textColorHint="@color/colorPrimary">
+            android:textColorHint="@color/colorPrimary"
+            app:errorTextAppearance="@style/WelcomeErrorAppearance">
 
             <EditText
                 android:id="@+id/et_password"

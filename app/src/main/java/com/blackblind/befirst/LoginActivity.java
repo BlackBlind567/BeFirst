@@ -52,10 +52,10 @@ public class LoginActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
-//        if (firebaseAuth.getCurrentUser() != null){
-//            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//            finish();
-//        }
+        if (firebaseAuth.getCurrentUser() != null){
+            finish();
+            startActivity(new Intent(LoginActivity.this, ThinkActivity.class));
+        }
 
         progressDialog = new  ProgressDialog(this);
 
