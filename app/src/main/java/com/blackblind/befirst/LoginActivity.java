@@ -1,6 +1,6 @@
 package com.blackblind.befirst;
 
-import android.app.ActionBar;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,12 +17,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -119,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
 //                    }
                 }
                 if (!task.isSuccessful()){
-                    Toast.makeText(LoginActivity.this, "Login failed !! Please try again later", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login failed !! Email and Password does not match", Toast.LENGTH_SHORT).show();
                 }
                 progressDialog.dismiss();
             }
@@ -151,7 +149,11 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         // check for a valid password
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (!TextUtils.isEmpty(password)){
+            passwordWrapper.setError(getString(R.string.error_required_field));
+            focusView = passwordWrapper;
+            cancel = true;
+        } else if (!isPasswordValid(password)){
             passwordWrapper.setError(getString(R.string.error_invalid_password));
             focusView = passwordWrapper;
             cancel = true;
