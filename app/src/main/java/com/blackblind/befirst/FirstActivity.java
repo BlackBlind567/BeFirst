@@ -10,11 +10,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ContextMenu;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,6 +37,12 @@ public class FirstActivity extends AppCompatActivity {
 
 //        firebase instance
         firebaseAuth = FirebaseAuth.getInstance();
+
+        LayoutInflater inflater = getLayoutInflater();
+        final View layout = inflater.inflate(R.layout.custom_toast,(ViewGroup) findViewById(R.id.custom_toast_container));
+
+        final TextView text = layout.findViewById(R.id.text);
+
 
 //        custom action bar
         Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -56,28 +65,71 @@ public class FirstActivity extends AppCompatActivity {
 
                 int id = item.getItemId();
                 if (id == R.id.nav_your_thought){
-                    Toast.makeText(FirstActivity.this, "This feature will be added soon", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(FirstActivity.this, "This feature will be added soon", Toast.LENGTH_SHORT).show();
+                    text.setText(R.string.your_thought_toast);
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.BOTTOM, 10, 80
+                    );
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    toast.setView(layout);
+                    toast.show();
+//                    toast.setMargin(10,20);
                 }else if (id == R.id.nav_publish) {
-                    Toast.makeText(FirstActivity.this, "You can see the all publisher thoughts", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(FirstActivity.this, "You can see the all publisher thoughts", Toast.LENGTH_SHORT).show();
+                    text.setText(R.string.users_thought);
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.BOTTOM, 10, 80
+                    );
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    toast.setView(layout);
+                    toast.show();
                     startActivity(new Intent(FirstActivity.this,MainActivity.class));
                 }else if (id == R.id.nav_think_say) {
                     if (firebaseAuth.getCurrentUser() != null){
                         startActivity(new Intent(FirstActivity.this, ThinkActivity.class));
                     }else {
-                        Toast.makeText(FirstActivity.this, "Go in profile section and login", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(FirstActivity.this, "Go in profile section and login", Toast.LENGTH_SHORT).show();
+                        text.setText(R.string.login_first);
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.BOTTOM, 10, 80
+                        );
+                        toast.setDuration(Toast.LENGTH_LONG);
+                        toast.setView(layout);
+                        toast.show();
                     }
                 } else if (id == R.id.nav_feedback) {
                     startActivity(new Intent(FirstActivity.this,FeedbackActivity.class));
-                    Toast.makeText(FirstActivity.this, "We need your feedback", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(FirstActivity.this, "We need your feedback", Toast.LENGTH_SHORT).show();
+                    text.setText(R.string.feedback_toast);
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.BOTTOM, 10, 80
+                    );
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    toast.setView(layout);
+                    toast.show();
 
                 }else if (id == R.id.nav_logout) {//
                     if (firebaseAuth.getCurrentUser() != null){
                         firebaseAuth.signOut();
-                        Toast.makeText(FirstActivity.this, "Successfully SignOut", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(FirstActivity.this, "Successfully SignOut", Toast.LENGTH_SHORT).show();
+                        text.setText(R.string.Successfully_SignOut);
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.BOTTOM, 10, 80
+                        );
+                        toast.setDuration(Toast.LENGTH_LONG);
+                        toast.setView(layout);
+                        toast.show();
                         startActivity(new Intent(FirstActivity.this,LoginActivity.class));
                     }
                     if (firebaseAuth.getCurrentUser() == null){
-                        Toast.makeText(FirstActivity.this, "You are not logged in", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(FirstActivity.this, "You are not logged in", Toast.LENGTH_SHORT).show();
+                        text.setText(R.string.not_logged_in);
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.BOTTOM, 10, 80
+                        );
+                        toast.setDuration(Toast.LENGTH_LONG);
+                        toast.setView(layout);
+                        toast.show();
                     }
 
                 }

@@ -42,5 +42,11 @@
     <string name="feedback">Feedback</string>
     <string name="your_thought">Your thought</string>
     <string name="think_amp_say"><![CDATA[Think & Say]]></string>
+    <string name="your_thought_toast">This feature will be added soon</string>
+    <string name="users_thought">You can see the all publisher thoughts</string>
+    <string name="login_first">Go in profile section and login</string>
+    <string name="feedback_toast">We need your feedback</string>
+    <string name="Successfully_SignOut">Successfully SignOut</string>
+    <string name="not_logged_in">You are not logged in</string>
 
 </resources>
