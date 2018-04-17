@@ -11,7 +11,10 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private EditText editTextEmail;
     private EditText editTextPassword;
+    private TextView text;
+    private View layout;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
 
@@ -56,6 +61,12 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         progressDialog = new  ProgressDialog(this);
+
+
+        LayoutInflater inflater = getLayoutInflater();
+        layout = inflater.inflate(R.layout.custom_toast,(ViewGroup) findViewById(R.id.custom_toast_container));
+
+        text = layout.findViewById(R.id.text);
 
         emailWrapper = findViewById(R.id.emailWrapper);
         passwordWrapper = findViewById(R.id.passwordWrapper);
@@ -117,7 +128,14 @@ public class LoginActivity extends AppCompatActivity {
 //                    }
                 }
                 if (!task.isSuccessful()){
-                    Toast.makeText(LoginActivity.this, "Login failed !! Email and Password does not match", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginActivity.this, "Login failed !! Email and Password does not match", Toast.LENGTH_SHORT).show();
+                    text.setText(R.string.not_match);
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.BOTTOM, 10, 80
+                    );
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    toast.setView(layout);
+                    toast.show();
                 }
                 progressDialog.dismiss();
             }
@@ -149,11 +167,17 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         // check for a valid password
-        if (!TextUtils.isEmpty(password)){
-            passwordWrapper.setError(getString(R.string.error_required_field));
-            focusView = passwordWrapper;
-            cancel = true;
-        } else if (!isPasswordValid(password)){
+//        if (!TextUtils.isEmpty(password)){
+//            passwordWrapper.setError(getString(R.string.error_required_field));
+//            focusView = passwordWrapper;
+//            cancel = true;
+//        } else if (!isPasswordValid(password)){
+//            passwordWrapper.setError(getString(R.string.error_invalid_password));
+//            focusView = passwordWrapper;
+//            cancel = true;
+//        }
+
+        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
             passwordWrapper.setError(getString(R.string.error_invalid_password));
             focusView = passwordWrapper;
             cancel = true;

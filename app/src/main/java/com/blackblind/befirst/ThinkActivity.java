@@ -1,6 +1,6 @@
 package com.blackblind.befirst;
 
-import android.app.ActionBar;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -10,28 +10,20 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class ThinkActivity extends AppCompatActivity {
 
@@ -96,7 +88,7 @@ public class ThinkActivity extends AppCompatActivity {
 
 
 
-        firebaseFirestore.collection("thoughts").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        firebaseFirestore.collection("UserThoughts").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
 

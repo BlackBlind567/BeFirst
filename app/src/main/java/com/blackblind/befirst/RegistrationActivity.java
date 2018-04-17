@@ -1,6 +1,4 @@
 package com.blackblind.befirst;
-
-import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -140,7 +138,7 @@ public class RegistrationActivity extends AppCompatActivity {
         userMap.put("password" , userPassword);
         userMap.put("mobile" , userNumber);
 
-        firebaseFirestore.collection("quoteMaster").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        firebaseFirestore.collection("beFirstUser").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
 
@@ -214,21 +212,21 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
         // check for a valid password
-//        if (!TextUtils.isEmpty(password)){
-//            passWrapper.setError(getString(R.string.error_required_field));
-//            focusView = passWrapper;
-//            cancel = true;
-//        } else if (!isPasswordValid(password)){
-//            passWrapper.setError(getString(R.string.error_invalid_password));
-//            focusView = passWrapper;
-//            cancel = true;
-//        }
-
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (!TextUtils.isEmpty(password)){
+            passWrapper.setError(getString(R.string.error_required_field));
+            focusView = passWrapper;
+            cancel = true;
+        } else if (!isPasswordValid(password)){
             passWrapper.setError(getString(R.string.error_invalid_password));
             focusView = passWrapper;
             cancel = true;
         }
+
+//        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+//            passWrapper.setError(getString(R.string.error_invalid_password));
+//            focusView = passWrapper;
+//            cancel = true;
+//        }
 
         // check for a valid mobile number
         if (TextUtils.isEmpty(Number)) {

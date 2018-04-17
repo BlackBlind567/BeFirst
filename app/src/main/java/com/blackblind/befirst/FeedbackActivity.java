@@ -2,7 +2,9 @@ package com.blackblind.befirst;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.ContactsContract;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.security.PrivateKey;
+import java.util.Objects;
 
 public class FeedbackActivity extends AppCompatActivity {
 
@@ -20,10 +23,13 @@ public class FeedbackActivity extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextMessage;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         TextInputLayout subjectWrapper = findViewById(R.id.subjectWrapper);
         TextInputLayout emailWrapper = findViewById(R.id.fedEmailWrapper);

@@ -47,11 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-//        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//        getSupportActionBar().setDisplayShowCustomEnabled(true);
-//        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
-//        View view =getSupportActionBar().getCustomView();
-
         firebaseAuth = FirebaseAuth.getInstance();
 
         quoteList = new ArrayList<>();
@@ -64,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
-        firebaseFirestore.collection("thoughts").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection("UserThoughts").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
 

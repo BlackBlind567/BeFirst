@@ -11,20 +11,33 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".FirstActivity"
-            android:label="Publisher"/>
+            android:label="Publisher">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FirstActivity" />
+        </activity>
         <activity
             android:name=".RegistrationActivity"
-            android:parentActivityName=".FirstActivity"
-            android:label="Registration"/>
+            android:label="New Account" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ChoiceActivity" />
+        </activity>
         <activity
             android:name=".LoginActivity"
-            android:parentActivityName=".FirstActivity"
-            android:label="Login"/>
+            android:label="Login" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ChoiceActivity" />
+        </activity>
         <activity
             android:name=".ThinkActivity"
-            android:parentActivityName=".FirstActivity"
-            android:label="Think &amp; Say"/>
+            android:label="Think &amp; Say">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FirstActivity" />
+
+        </activity>
         <activity android:name=".FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,11 +45,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FeedbackActivity"
-            android:label="Feedback"
-            android:parentActivityName=".FirstActivity"/>
+        <activity
+            android:name=".FeedbackActivity"
+            android:label="Feedback">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FirstActivity" />
+        </activity>
         <activity android:name=".User_ThoughtActivity">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FirstActivity" />
+        </activity>
+        <activity android:name=".ChoiceActivity"
+            android:label="Move Ahead">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FirstActivity" />
         </activity>
     </application>
 

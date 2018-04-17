@@ -108,7 +108,7 @@ public class FirstActivity extends AppCompatActivity {
                     toast.setView(layout);
                     toast.show();
 
-                }else if (id == R.id.nav_logout) {//
+                }else if (id == R.id.nav_logout) {
                     if (firebaseAuth.getCurrentUser() != null){
                         firebaseAuth.signOut();
 //                        Toast.makeText(FirstActivity.this, "Successfully SignOut", Toast.LENGTH_SHORT).show();
@@ -120,8 +120,7 @@ public class FirstActivity extends AppCompatActivity {
                         toast.setView(layout);
                         toast.show();
                         startActivity(new Intent(FirstActivity.this,LoginActivity.class));
-                    }
-                    if (firebaseAuth.getCurrentUser() == null){
+                    }else{
 //                        Toast.makeText(FirstActivity.this, "You are not logged in", Toast.LENGTH_SHORT).show();
                         text.setText(R.string.not_logged_in);
                         Toast toast = new Toast(getApplicationContext());
@@ -161,7 +160,11 @@ public class FirstActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_profile) {
-            startActivity(new Intent(FirstActivity.this,LoginActivity.class));
+           if (firebaseAuth.getCurrentUser() != null){
+               startActivity(new Intent(FirstActivity.this,ThinkActivity.class));
+           }else {
+               startActivity(new Intent(FirstActivity.this,ChoiceActivity.class));
+           }
         }
 
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);

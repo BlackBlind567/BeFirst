@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Be First</string>
+    <string name="app_name">BeFirst</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="not_a_member_please_signup_here">Not a member? Please SignUp here</string>
@@ -48,5 +48,8 @@
     <string name="feedback_toast">We need your feedback</string>
     <string name="Successfully_SignOut">Successfully SignOut</string>
     <string name="not_logged_in">You are not logged in</string>
+    <string name="login_with_befirst">Login with Befirst</string>
+    <string name="create_a_new_account">Create a new Account</string>
+    <string name="not_match">Email and Password does not match</string>
 
 </resources>
