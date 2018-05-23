@@ -61,7 +61,7 @@ public class FeedbackActivity extends AppCompatActivity {
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
         Log.i("Send email", "");
-        String[] TO = {"shantanujaiswal20@gmail.com"};
+        String[] TO = {"trinitybox@gmail.com"};
         String[] CC = {"developerdev90@gmail.com"};
 
         emailIntent.setData(Uri.parse("mailto:"));

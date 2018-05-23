@@ -142,7 +142,7 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentReference documentReference) {
 
-                Toast.makeText(RegistrationActivity.this, "Registration is successful", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(RegistrationActivity.this, "Registration is successful", Toast.LENGTH_SHORT).show();
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -212,21 +212,21 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
         // check for a valid password
-        if (!TextUtils.isEmpty(password)){
-            passWrapper.setError(getString(R.string.error_required_field));
-            focusView = passWrapper;
-            cancel = true;
-        } else if (!isPasswordValid(password)){
-            passWrapper.setError(getString(R.string.error_invalid_password));
-            focusView = passWrapper;
-            cancel = true;
-        }
-
-//        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+//        if (!TextUtils.isEmpty(password)){
+//            passWrapper.setError(getString(R.string.error_required_field));
+//            focusView = passWrapper;
+//            cancel = true;
+//        } else if (!isPasswordValid(password)){
 //            passWrapper.setError(getString(R.string.error_invalid_password));
 //            focusView = passWrapper;
 //            cancel = true;
 //        }
+
+        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+            passWrapper.setError(getString(R.string.error_invalid_password));
+            focusView = passWrapper;
+            cancel = true;
+        }
 
         // check for a valid mobile number
         if (TextUtils.isEmpty(Number)) {
