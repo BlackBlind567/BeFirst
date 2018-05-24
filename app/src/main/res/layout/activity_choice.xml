@@ -3,32 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChoiceActivity">
+    tools:context=".ChoiceActivity"
+    android:orientation="vertical">
 
 
 
 
     <Button
         android:id="@+id/go_Reg"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_weight="1"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/create_a_new_account"
         android:padding="20dp"
         android:textSize="20sp"
         android:background="@drawable/button_shape"
-        android:textColor="@color/colorAccent" />
+        android:textColor="@color/colorAccent"
+        android:layout_gravity="center"/>
 
 
     <Button
         android:id="@+id/go_log"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_weight="1"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/login_with_befirst"
         android:padding="20dp"
         android:textSize="20sp"
-
+        android:layout_gravity="center"
         android:background="@drawable/button_shape_nobg" />
 
 
