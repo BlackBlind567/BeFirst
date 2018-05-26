@@ -1,8 +1,10 @@
 package com.blackblind.befirst;
 
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -39,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private TextView text;
     private View layout;
+    private TextView forgotText;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
 
@@ -67,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         layout = inflater.inflate(R.layout.custom_toast,(ViewGroup) findViewById(R.id.custom_toast_container));
 
         text = layout.findViewById(R.id.text);
-
+        forgotText = findViewById(R.id.forgotTextAlert);
         emailWrapper = findViewById(R.id.emailWrapper);
         passwordWrapper = findViewById(R.id.passwordWrapper);
         editTextEmail = findViewById(R.id.et_email);
@@ -79,6 +82,27 @@ public class LoginActivity extends AppCompatActivity {
 
         emailWrapper.setHint("Email");
         passwordWrapper.setHint("Password");
+
+        forgotText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+                alert.setTitle("Forgot Password");
+                alert.setMessage("If you want to change your password so mail us with your register mail id on 'trinityboxdev@gmail.com' and type subject 'change my pass' and wait atleast one working day.");
+                alert.setIcon(R.mipmap.logo_square);
+
+
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "Please remember your password", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                alert.show();
+            }
+
+        });
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override

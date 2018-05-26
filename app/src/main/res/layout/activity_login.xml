@@ -95,6 +95,16 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <TextView
+            android:id="@+id/forgotTextAlert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password"
+            android:layout_gravity="end"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:layout_marginEnd="15dp"/>
+
         <Button
             android:id="@+id/btn_signIn"
             android:layout_marginTop="25dp"

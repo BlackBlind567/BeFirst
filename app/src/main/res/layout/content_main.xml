@@ -112,13 +112,6 @@
                 android:layout_margin="10dp"
                 android:textSize="25sp"
                 android:fontFamily="@font/lobster_two_regular"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/text3"
-                android:layout_margin="10dp"
-                android:textSize="25sp"
-                android:fontFamily="@font/lobster_two_regular"/>
 
             <TextView
                 android:layout_width="match_parent"

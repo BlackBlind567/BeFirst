@@ -6,9 +6,6 @@
     tools:context=".ChoiceActivity"
     android:orientation="vertical">
 
-
-
-
     <Button
         android:id="@+id/go_Reg"
         android:layout_width="match_parent"
@@ -32,8 +29,5 @@
         android:textSize="20sp"
         android:layout_gravity="center"
         android:background="@drawable/button_shape_nobg" />
-
-
-
 
 </LinearLayout>
